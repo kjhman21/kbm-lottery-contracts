@@ -8,7 +8,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
-contract KlaytnKrews is ERC721, ERC721URIStorage, Pausable, Ownable, ERC721Burnable {
+contract KBMPOAP is ERC721, ERC721URIStorage, Pausable, Ownable, ERC721Burnable {
     using Counters for Counters.Counter;
 
     Counters.Counter private _tokenIdCounter;
@@ -41,6 +41,10 @@ contract KlaytnKrews is ERC721, ERC721URIStorage, Pausable, Ownable, ERC721Burna
         _tokenIdCounter.increment();
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, uri);
+    }
+
+    function totalSupply() public view returns (uint256) {
+        return _tokenIdCounter.current();
     }
 
     // The following functions are overrides required by Solidity.
